@@ -1,0 +1,6 @@
+CREATE DATABASE ejemplo;
+create schema esq1;
+CREATE TABLE esq1.tabla1 (dni VARCHAR(9) PRIMARY KEY, nombre VARCHAR(50) NOT NULL);
+CREATE TABLE esq1.tabla2 (id_pedido SERIAL PRIMARY KEY, dni VARCHAR(9) NOT NULL, CONSTRAINT fk_dni FOREIGN KEY (dni) REFERENCES esq1.tabla1(dni));
+ALTER TABLE esq1.tabla1 ADD COLUMN edad INTEGER CHECK (edad >= 0 AND edad <= 99);
+ALTER TABLE esq1.tabla2 ADD COLUMN precio DECIMAL(7,4);
